@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>LINK 2k26-27</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" href="img/favicon.png"> 
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Sekuya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Chango&family=Rye&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet"> 
+</head>
+
+
+<body class="page-minor">
+
+
+
+    <!-- HAMBURGER BUTTON --> 
+
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Open menu"> 
+        <span></span> 
+        <span></span> 
+
+        <span></span> 
+    </button> 
+
+    <!-- OVERLAY --> 
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div> 
+
+    <!-- SIDE DRAWER --> 
+    <nav class="drawer" id="drawer"> 
+         <br> 
+         <br> 
+         <br> 
+        <ul class="drawer-links">
+
+
+            <li><a href="index.html"> Home</a></li> 
+           <li><a href="2 Our Shepherds.html"> Our Shepherds </a></li>
+           <li><a href="2 Our Vicar Generals.html"> Our Vicar Generals </a></li>
+           <li><a href="2 Our Formators.html"> Our Formators</a></li> 
+            <li><a href="3 Deacons.html"> Deacons</a></li> 
+            <li><a href="4 3Th.html"> Third Year Theology</a></li> 
+            <li><a href="5 2Th.html"> Second Year Theology</a></li> 
+            <li><a href="6 1Th.html"> First Year Theology</a></li> 
+            <li><a href="7 Abroad.html"> Abroad</a></li>
+            <li><a href="8 Regency.html"> Regency</a></li>
+            <li><a href="12 PG.html"> PG Students</a></li> 
+            <li><a href="9 3Ph.html"> Third Year Philosphy</a></li> 
+            <li><a href="10 2Ph.html"> Second Year Philosophy</a></li> 
+            <li><a href="11 1Ph.html"> First Year Philosophy</a></li> 
+           <!-- <li><a href="12 Minor Seminary.html"> Minor Seminary</a></li> -->
+            <li><a href="13 About.html"> About</a></li> 
+        </ul> 
+    </nav> 
+     
+
+
+ <!-- Title -->
+    <div class="title-wrapper">
+  <div class="ornament">
+    <span class="ornament-diamond"></span>
+  </div>
+  <h1 class="page-title">Minor Seminary</h1>
+</div>
+<br>
+
+<div class="carousel-container">
+        <input type="radio" name="slider" id="item-1" checked>
+        <input type="radio" name="slider" id="item-2">
+        <input type="radio" name="slider" id="item-3">
+        <input type="radio" name="slider" id="item-4">
+        <input type="radio" name="slider" id="item-5">
+
+        <div class="cards">
+            <label class="card" for="item-1" id="song-1">
+                <img src="img/M1.jpg" alt="Image 1">
+            </label>
+
+            <label class="card" for="item-2" id="song-2">
+                <img src="img/M2.jpg" alt="Image 2">
+            </label>
+
+            <label class="card" for="item-3" id="song-3">
+                <img src="img/M3.jpg" alt="Image 3">
+            </label>
+
+            <label class="card" for="item-4" id="song-4">
+                <img src="img/M4.jpg" alt="Image 4">
+            </label>
+
+            <label class="card" for="item-5" id="song-5">
+                <img src="img/M5.jpg" alt="Image 5">
+            </label>
+        </div>
+    </div>
+
+    <script>
+        const radios = Array.from(document.querySelectorAll('input[name="slider"]'));
+        const carousel = document.querySelector('.carousel-container');
+        let currentIndex = 0;
+        let autoplayInterval;
+
+        function goToSlide(index) {
+            currentIndex = (index + radios.length) % radios.length;
+            radios[currentIndex].checked = true;
+        }
+
+        function startAutoplay() {
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 4000);
+        }
+
+        radios.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                currentIndex = index;
+                startAutoplay();
+            });
+        });
+
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            let startX = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        goToSlide(currentIndex + 1);
+                    } else {
+                        goToSlide(currentIndex - 1);
+                    }
+                }
+            }, { passive: true });
+        }
+
+        startAutoplay();
+    </script>
+    <br>
+
+<!-- Third Years -->
+<table>
+    <thead>
+      <tr>
+        <th class="name" colspan="3">Third Years</th>
+      </tr>
+      <tr>
+        <th class="sl-no">Sl.No</th>
+        <th>Name</th>
+        <th>Place</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="sl-no">01</td><td>Areyethinal Joswin</td><td>Mandalam</td></tr>
+      <tr><td class="sl-no">02</td><td>Cheriyanolickal Sebastian</td><td>Velimanam</td></tr>
+      <tr><td class="sl-no">03</td><td>Chirackalakath Abin</td><td>Thadikadavu</td></tr>
+      <tr><td class="sl-no">04</td><td>Jeerakassery Jacob</td><td>Chedikulam</td></tr>
+      <tr><td class="sl-no">05</td><td>Kalapurackal Thomas</td><td>Kanakapally</td></tr>
+      <tr><td class="sl-no">06</td><td>Kalloorkulam Akhil</td><td>Pulingome</td></tr>
+      <tr><td class="sl-no">07</td><td>Kaniyamkunnel Chacko</td><td>Padimaruth</td></tr>
+      <tr><td class="sl-no">08</td><td>Kottarathil Aibi</td><td>Chemperi</td></tr>
+      <tr><td class="sl-no">09</td><td>Maniyangattu Luke</td><td>Anamanjal</td></tr>
+      <tr><td class="sl-no">10</td><td>Maniyangattu Joseph</td><td>Anamanjal</td></tr>
+      <tr><td class="sl-no">11</td><td>Manjamattathil Mathew</td><td>Ayannur</td></tr>
+      <tr><td class="sl-no">12</td><td>Olikkarottu Martin</td><td>Arivilanjapoil</td></tr>
+      <tr><td class="sl-no">13</td><td>Poomarathil Roshan (Plus Two)</td><td>Peratta</td></tr>
+      <tr><td class="sl-no">14</td><td>Parakkanassery Sanjo</td><td>Charal</td></tr>
+      <tr><td class="sl-no">15</td><td>Pulikkal Dominic (Plus Two)</td><td>Malom</td></tr>
+      <tr><td class="sl-no">16</td><td>Pulikkal Mathew</td><td>Ayannur</td></tr>
+      <tr><td class="sl-no">17</td><td>Puthenpurackal Jorlin Shibu</td><td>Kamballoor</td></tr>
+      <tr><td class="sl-no">18</td><td>Puthiyakunnel Martin</td><td>Puncha</td></tr>
+      <tr><td class="sl-no">19</td><td>Thadathil Alvit</td><td>Pathanpara</td></tr>
+      <tr><td class="sl-no">20</td><td>Thengapparayil Chacko</td><td>Peravoor</td></tr>
+      <tr><td class="sl-no">21</td><td>Vadakara Jacob</td><td>Kanjiradukkom</td></tr>
+      <tr><td class="sl-no">22</td><td>Vettathu Jacob (Plus Two)</td><td>Konnakkadu</td></tr>
+      <tr><td class="sl-no">23</td><td>Vettiyolil Aplhonse</td><td>Sreekandapuram</td></tr>
+    </tbody>
+  </table>
+
+<br>
+<hr>
+<br>
+
+<!-- Second Years -->
+
+ <table>
+    <thead>
+      <tr>
+        <th class="name" colspan="3">Second Years</th>
+      </tr>
+      <tr>
+        <th class="sl-no">Sl.No</th>
+        <th>Name</th>
+        <th>Place</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="sl-no">01</td><td>Alenchery Adon</td><td>Panathady</td></tr>
+      <tr><td class="sl-no">02</td><td>Animoottil Jithu</td><td>Kallar</td></tr>
+      <tr><td class="sl-no">03</td><td>Areekkuzhipil Johns</td><td>Karunapuram</td></tr>
+      <tr><td class="sl-no">04</td><td>Chetticheriyil Jiswin</td><td>Karikkottakary</td></tr>
+      <tr><td class="sl-no">05</td><td>Idachery Dani</td><td>Chempanthotty</td></tr>
+      <tr><td class="sl-no">06</td><td>Kadankavil Joseph</td><td>Palavayal</td></tr>
+      <tr><td class="sl-no">07</td><td>Kunnel Augusto</td><td>Pulikkurumba</td></tr>
+      <tr><td class="sl-no">08</td><td>Madappamthottukunnel Alphonse</td><td>Anamanjal</td></tr>
+      <tr><td class="sl-no">09</td><td>Plavilaputhenveettil Alfi</td><td>Vimalagiri</td></tr>
+      <tr><td class="sl-no">10</td><td>Porunnakkottil Mosses</td><td>Nirmalagiri</td></tr>
+      <tr><td class="sl-no">11</td><td>Thazhathuvadakkel Edwin</td><td>Chemperi</td></tr>
+      <tr><td class="sl-no">12</td><td>Thazhathuveetil Gladin</td><td>Nellikkutty</td></tr>
+      <tr><td class="sl-no">13</td><td>Velikkakath George</td><td>Puncha</td></tr>
+    </tbody>
+  </table>
+<br>
+<hr>
+<br>
+
+<!-- First Years -->
+
+<table>
+    <thead>
+      <tr>
+        <th class="name" colspan="3">First Years</th>
+      </tr>
+      <tr>
+        <th class="sl-no">Sl.No</th>
+        <th>Name</th>
+        <th>Place</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="sl-no">01</td><td>Achikkal Thomas (Ashwin)</td><td>Panathady</td></tr>
+      <tr><td class="sl-no">02</td><td>Alapatt Thomas (Delel)</td><td>Anamanjal</td></tr>
+      <tr><td class="sl-no">03</td><td>Areeplackal Mathews (Albin)</td><td>Bheemanady</td></tr>
+      <tr><td class="sl-no">04</td><td>Chakkangal Emmanuel (Shon)</td><td>Manipara</td></tr>
+      <tr><td class="sl-no">05</td><td>Cherukanayil (Devasia) Roshan</td><td>Vaniyappara</td></tr>
+      <tr><td class="sl-no">06</td><td>Erankavil Thomas (Jis)</td><td>Manipara</td></tr>
+      <tr><td class="sl-no">07</td><td>Kalapurackal Joel</td><td>Karayathumchal</td></tr>
+      <tr><td class="sl-no">08</td><td>Kalathichira Isaac (Alfin)</td><td>Neduvaloor</td></tr>
+      <tr><td class="sl-no">09</td><td>Kallukkulangara John</td><td>Matttara</td></tr>
+      <tr><td class="sl-no">10</td><td>Kavunkal Tom</td><td>Karikkottakkary</td></tr>
+      <tr><td class="sl-no">11</td><td>Kizhakkekozhuvanal Thomas (Nikhil)</td><td>Nellippara</td></tr>
+      <tr><td class="sl-no">12</td><td>Kolashery Aloyis</td><td>Thomapuram</td></tr>
+      <tr><td class="sl-no">13</td><td>Kunnel Mathew (Ebin)</td><td>Edakkanam</td></tr>
+      <tr><td class="sl-no">14</td><td>Kunnumel Philip (Akhil)</td><td>Mundanoor</td></tr>
+      <tr><td class="sl-no">15</td><td>Kuttivelil Alen</td><td>Thayyeni (12)</td></tr>
+      <tr><td class="sl-no">16</td><td>Manichathazhe Kuriakose (Kenaz Tom)</td><td>Periya</td></tr>
+      <tr><td class="sl-no">17</td><td>Mannarthottathil John (Abel)</td><td>Paduppu</td></tr>
+      <tr><td class="sl-no">18</td><td>Mudakkalil Joseph (Jisto)</td><td>Mattara</td></tr>
+      <tr><td class="sl-no">19</td><td>Muriamvelil Joseph (Aron)</td><td>Panathady</td></tr>
+      <tr><td class="sl-no">20</td><td>Mylamannil Mathew (Sharon)</td><td>Cheemeni</td></tr>
+      <tr><td class="sl-no">21</td><td>Nettikkatt Anson Christie</td><td>Iritty</td></tr>
+      <tr><td class="sl-no">22</td><td>Nyayathu Antonio</td><td>Manikkadavu</td></tr>
+      <tr><td class="sl-no">23</td><td>Padikkal Albert</td><td>Cheemeni</td></tr>
+      <tr><td class="sl-no">24</td><td>Poovathinkal Joseph (Chriswin)</td><td>Kolakkadu</td></tr>
+      <tr><td class="sl-no">25</td><td>Puthupparambil Josephin</td><td>Marygiri</td></tr>
+      <tr><td class="sl-no">26</td><td>Valayath Joseph (Alan)</td><td>Chundaparambu</td></tr>
+      <tr><td class="sl-no">27</td><td>Valiyakulathil Chacko (Anex)</td><td>Perinkary</td></tr>
+      <tr><td class="sl-no">28</td><td>Vavolil Zacharia (Ashin Tom)</td><td>Padiyoor</td></tr>
+      <tr><td class="sl-no">29</td><td>Vellaringattu Joseph (Tom)</td><td>Panathady</td></tr>
+     <!-- <tr><td class="sl-no">30</td><td>Knaiyamkunnel George Msm</td><td>Chundaparambu</td></tr>
+      <tr><td class="sl-no">31</td><td>Kanjirathummoottil Thomson (Leon) (Msm)</td><td>Cherupuzha</td></tr>
+      <tr><td class="sl-no">32</td><td>Vazhayil Thomas (Tom) Msm</td><td>Vilamana</td></tr>  -->
+    </tbody>
+  </table>
+
+
+    <div class="title-wrapper" loading="lazy">
+  <div class="ornament">
+    <span class="ornament-diamond"></span>
+  </div>
+ </div>
+
+    <!--Hamburger--> 
+    <script src="script.js"></script> 
+
+
+</body>
+</html>
