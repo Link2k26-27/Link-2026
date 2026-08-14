@@ -15,6 +15,8 @@ body {
     background-attachment: fixed; 
     background-size: cover; 
     background-position: center; 
+    max-width: 100%;
+    width: 100%;
 }
 
 /* ── page colors ── */
@@ -400,7 +402,7 @@ background-image:
 .container {
     display: flex; 
     height: 100vh; 
-     
+    overflow: hidden; 
 }
 
 
@@ -411,6 +413,8 @@ background-image:
     display: flex; 
     flex-direction: column; 
     align-items: center; 
+    overflow-y: auto; 
+    box-sizing: border-box; 
 }
 
 /* PHOTO BOX */
@@ -476,6 +480,9 @@ background-image:
     padding: 60px; 
     background-color: rgba(255, 255, 255, 0.05); 
     backdrop-filter: blur(5px); 
+    overflow-y: auto; 
+    box-sizing: border-box; 
+    overflow-x: hidden; 
 }
 
 
@@ -519,6 +526,9 @@ background-image:
     font-size: 40px; 
     margin: 12px 0; 
     color: #f5f5f5; 
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 
@@ -526,9 +536,9 @@ background-image:
 @media (max-width: 768px) {
 
     .container { 
-
         flex-direction: column; 
         height: auto; 
+        overflow: visible; 
     } 
 
 
@@ -536,6 +546,7 @@ background-image:
         width: 100%; 
         padding: 20px; 
         box-sizing: border-box; 
+        overflow-y: visible; 
     } 
 
 
@@ -557,6 +568,7 @@ background-image:
         width: 55px; 
         padding: 10px; 
         font-size: 14px; 
+        flex-shrink: 0;
     } 
 
 
@@ -564,26 +576,55 @@ background-image:
         width: 100%; 
         padding: 16px; 
         box-sizing: border-box; 
+        overflow-x: hidden;
     } 
 
     .page-title {
-        font-size: 28px;
-        margin: 60px 0 20px;
+        font-size: clamp(24px, 6vw, 28px);
+        margin: 60px 16px 20px;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .name { 
-
-        font-size: 26px; 
+        font-size: clamp(20px, 5vw, 26px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
     } 
 
     .short-name {
-        font-size: 22px;
+        font-size: clamp(14px, 4vw, 22px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
 
 
     .right p { 
-        font-size: 18px; 
-    } 
+        font-size: clamp(14px, 3.5vw, 18px);
+        padding: 8px 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        margin: 8px 0;
+    }
+
+    .right p strong {
+        display: block;
+        margin-bottom: 4px;
+        min-width: auto;
+    }
+
+    .title-wrapper {
+        margin: 60px 0 20px;
+        padding: 0 16px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
 }
 
 
@@ -1006,6 +1047,8 @@ background-image:
     display: inline-block;
     min-width: 105px;
     color: #f5c28b;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 
