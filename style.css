@@ -1030,7 +1030,7 @@ background-image:
     margin: 8px 0 22px;
     color: #ffffff;
     font-family: "Orbitron", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -1099,7 +1099,10 @@ tbody tr:hover {
 }
 
 .sl-no {
-  width: 60px;
+  width: 10px;
+  min-width: 10px;
+  padding-left: 3px;
+  padding-right: 3px;
   text-align: center;
   font-weight: 700;
 }
@@ -1299,14 +1302,33 @@ tbody tr:hover {
 }
 
 @media (max-width: 768px) {
+    body,
+    .page-minor {
+        overflow-x: hidden;
+    }
+
     .page-minor .carousel-container {
         height: 320px;
         max-width: 100%;
         padding: 0 10px;
+        overflow: hidden;
     }
 
     .page-minor .card {
         width: 88%;
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+        word-break: break-word;
+        overflow-wrap: anywhere;
     }
 
     .page-minor #item-1:checked ~ .cards #song-2,
