@@ -25,6 +25,28 @@ carousels.forEach((carousel) => {
         }
 
         showSlide(0);
+
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            let startX = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        showSlide(currentSlide + 1);
+                    } else {
+                        showSlide(currentSlide - 1);
+                    }
+                }
+            }, { passive: true });
+        }
+
         setInterval(() => showSlide(currentSlide + 1), interval);
     }
 });
